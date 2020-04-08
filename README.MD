@@ -329,7 +329,7 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 
 # Additional Notes
 
-- My WiFi doesn't work! How can I access it anyways?
+**My WiFi doesn't work! How can I access it anyways?**
 
 ~~Just buy a working WiFi card, simple.~~ 
 
