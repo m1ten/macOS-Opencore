@@ -67,19 +67,22 @@ Add these to OC/Kexts
 - - VoodooI2CHID.kext 
 - NoTouchID.kext
 
-If you have working WiFi (a compatible WiFi Card that **isn't** a real Apple card, or Fenvi) add these:
+If you have working WiFi (a compatible WiFi Card that **isn't** a real Apple card, or Fenvi) add these: 
 - AirportBrcmFixup.kext
 - BrcmBluetoothInjector.kext
 - - BrcmFirmwareData.kext
 - - BrcmPatchRAM3.kext
 
-They may be different for you card, so check here!
+They may be different for you card, so check here! 
+
 [https://khronokernel-7.gitbook.io/wireless-buyers-guide/types-of-wireless-card/m2](https://khronokernel-7.gitbook.io/wireless-buyers-guide/types-of-wireless-card/m2)
 
 ---
-Got your Kexts? Great, we need to add ACPI Patches to add functionality to the laptop.
+Got your Kexts? Great, we need to add ACPI Patches to add functionality to the laptop. 
 
-The ACPI Guide is covered here:
+
+The ACPI Guide is covered here: 
+
 [https://khronokernel.github.io/Getting-Started-With-ACPI/](https://khronokernel.github.io/Getting-Started-With-ACPI/)
 
 
@@ -91,28 +94,42 @@ The ACPI Guide is covered here:
 - SSDT-GPRW - Lets the laptop sleep and wake up! No more insomnia in macOS.
 - SSDT-Q11Q12 - Redirects ACPI calls from the keyboard to macOS, to enable using F11 and F12 to adjust the brightness. Also requires two ACPI patches.
 - SSDT-PSF13 - Changes the PrintScreen button from disable trackpad to F13 (Optional)
-# OpenCore config.plist
-Grab the sample.plist file from the Docs folder and paste it to `OC` Folder. Rename it to `config.plist`
+# OpenCore config.plist 
 
-Example:
-`EFI/OC/config.plist`
+Grab the sample.plist file from the Docs folder and paste it to `OC` Folder. Rename it to `config.plist` 
 
-Use [ProperTree](https://github.com/corpnewt/ProperTree) to edit the plist.
 
-Go to File -> OC Clean Snapshot. Point it at the OC folder.
+Example: 
 
-Note: To OC Snapshot: `CTRL + R` or `Command + R` and point it at the OC folder. It will automatically add your kexts, drivers, and ACPI patches to the config.
+`EFI/OC/config.plist` 
 
-For CoffeeLake, the entire config.plist is covered here:
-[https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html)
+
+Use [ProperTree](https://github.com/corpnewt/ProperTree) to edit the plist. 
+
+
+Go to File -> OC Clean Snapshot. Point it at the OC folder. 
+
+
+Note: To OC Snapshot: `CTRL + R` or `Command + R` and point it at the OC folder. It will automatically add your kexts, drivers, and ACPI patches to the config. 
+
+
+For CoffeeLake, the entire config.plist is covered here: 
+
+[https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html) 
+
 
 A few changes need to be made for this device.
 
-ACPI -> Patch
-Dump your DSDT to check your EC device - it should be named `EC0`. If it ain't look here on how to rename different ones. **Make sure you dump your DSDT in Windows or Linux.**
-Use [SSDTTime](https://github.com/corpnewt/SSDTTime) to dump it.
-The complete ACPI guide:
-[https://khronokernel.github.io/Getting-Started-With-ACPI/Laptops/laptop-ec.html](https://khronokernel.github.io/Getting-Started-With-ACPI/Laptops/laptop-ec.html)
+ACPI -> Patch 
+
+Dump your DSDT to check your EC device - it should be named `EC0`. If it ain't look here on how to rename different ones. **Make sure you dump your DSDT in Windows or Linux.** 
+
+Use [SSDTTime](https://github.com/corpnewt/SSDTTime) to dump it. 
+
+The complete ACPI guide: 
+
+[https://khronokernel.github.io/Getting-Started-With-ACPI/Laptops/laptop-ec.html](https://khronokernel.github.io/Getting-Started-With-ACPI/Laptops/laptop-ec.html) 
+
 
 **Rename EC0 to EC**
 ---
@@ -180,78 +197,123 @@ The complete ACPI guide:
 
 ---
 **Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them.
-Once you're done, look in the results folder inside SSDTTime and open the OpenCore config.plist, and copy the patches to your config.plist. Copy SSDT-HPET.aml to EFI/OC/ACPI. If it's named `SSDT-HPET.dsl`, you need to compile it.
+Once you're done, look in the results folder inside SSDTTime and open the OpenCore config.plist, and copy the patches to your config.plist. Copy SSDT-HPET.aml to EFI/OC/ACPI. If it's named `SSDT-HPET.dsl`, you need to compile it. 
 
-That's all for ACPI. And it's a lot.
+That's all for ACPI. And it's a lot. 
+
 
 ---
-Under Booter -> Quirks
-`DevirtualizeMmio` **must** be set to FALSE
-`RebuildAppleMemoryMap` **must** be set to FALSE
-`SetupVirtualMap` **must** be set to TRUE
+Under Booter -> Quirks 
 
-Under DeviceProperties -> PciRoot(0x0)/Pci(0x2,0x0)
+`DevirtualizeMmio` **must** be set to FALSE 
 
-For a UHD 620:
-`device-id` = `9B3E0000` [Data]
-`AAPL,ig-platform-id` = `00009B3E` [Data]
+`RebuildAppleMemoryMap` **must** be set to FALSE 
 
-For a UHD 630:
-Go to ark.intel.com and check your iGPU's device-id. If it's `0x3E9B`, you do not need a device-id.
-`device-id` = `9B3E0000` [Data]
-`AAPL,ig-platform-id` = `00009B3E` [Data]
+`SetupVirtualMap` **must** be set to TRUE 
 
-If you have a dedicated / discrete GPU, it is **not** compatible, so make sure to disable it!
+
+Under DeviceProperties -> PciRoot(0x0)/Pci(0x2,0x0) 
+
+
+For a UHD 620: 
+
+`device-id` = `9B3E0000` [Data] 
+
+`AAPL,ig-platform-id` = `00009B3E` [Data] 
+
+
+For a UHD 630: 
+
+Go to ark.intel.com and check your iGPU's device-id. If it's `0x3E9B`, you do not need a device-id. 
+
+`device-id` = `9B3E0000` [Data] 
+
+`AAPL,ig-platform-id` = `00009B3E` [Data] 
+
+
+If you have a dedicated / discrete GPU, it is **not** compatible, so make sure to disable it! 
+
 
 To properly add the AppleALC layout-id, we'll use DeviceProperties **instead of the boot-argument. If you have `alcid=XX` *remove it.***
 
-My working alcid is 11, it goes as follows:
-DeviceProperties -> PciRoot(0x0)/Pci(0x1F,0x3)
-`layout-id` = `0B00000` [Data]
-In depth here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio)
+My working alcid is 11, it goes as follows: 
 
-If you have a Broadcom BCM94350ZAE WiFi Card (DW1820a) you might be able to get it to work correctly. (mine does)
-Under DeviceProperties -> PciRoot(0x0)/Pci(0x1D,0x2)/Pci(0x0,0x0)
-`pci-aspm-default` = `0` [Number]
-This will disable power management for the card, and (in my case) it worked.
+DeviceProperties -> PciRoot(0x0)/Pci(0x1F,0x3) 
+
+`layout-id` = `0B00000` [Data] 
+
+In depth here: 
+
+[https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio) 
+
+
+If you have a Broadcom BCM94350ZAE WiFi Card (DW1820a) you might be able to get it to work correctly. (mine does) 
+
+Under DeviceProperties -> PciRoot(0x0)/Pci(0x1D,0x2)/Pci(0x0,0x0) 
+
+`pci-aspm-default` = `0` [Number] 
+
+This will disable power management for the card, and (in my case) it worked. 
+
 
 
 # Fixing Apple iCloud, FaceTime, Messages, and other Apple Services.
 
-Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate a SMBIOS, under PlatformInfo -> Generic. In details here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices)
+Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate a SMBIOS, under PlatformInfo -> Generic. In details here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices) 
+
 Make sure you do this correctly! If you get an Apple Support Customer Code, you have to call Apple to get it fixed. Also, **you will need an Ethernet/WiFi device named en0 and is built-in.**
 
 # Fixing Audio, again!
-You may notice if you have headphones / mic plugged into the Combo port, that waking from sleep completely breaks it.
-To fix it, add Codec Commander to OC/Kexts
-[https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/)
-**Again, make sure to OC Snapshot when adding the kext.**
-Next, run `./install.sh` Inside the HDAFix Folder.
-Reboot.
+You may notice if you have headphones / mic plugged into the Combo port, that waking from sleep completely breaks it. 
+
+To fix it, add Codec Commander to OC/Kexts.  
+
+[https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/) 
+
+**Again, make sure to OC Snapshot when adding the kext.** 
+
+Next, run `./install.sh` Inside the HDAFix Folder. 
+
+Reboot. 
+
 
 # Enabling GUI and Boot Chime
 
-This is fairly easy, covered here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/gui](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/gui)
+This is fairly easy, covered here: 
+
+[https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/gui](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/extras/gui) 
+
 
 Copy the resources folder from [here](https://github.com/acidanthera/OcBinaryData) into `EFI/OC`
-Example: `EFI/OC/Resources/`
+Example: `EFI/OC/Resources/` 
 
 Grab OpenCanopy.efi from here. https://github.com/acidanthera/OpenCorePkg/releases
-It's in the OC/Drivers folder. You may of deleted it earlier when setting up your EFI Folder.
-Add `OpenCanopy.efi` to `EFI/OC/Drivers`
-Example: `EFI/OC/Drivers/OpenCanopy.efi`
+It's in the OC/Drivers folder. You may of deleted it earlier when setting up your EFI Folder. 
+
+Add `OpenCanopy.efi` to `EFI/OC/Drivers` 
+
+Example: `EFI/OC/Drivers/OpenCanopy.efi` 
+
 
 **Do not forget to run ProperTree Snapshot (CTRL / Command + R) to add it to your config.plist**
 
-In the config change the picker mode:
--   Misc -> Boot -> `PickerMode` = `External` [String]
+In the config change the picker mode: 
 
-Setup BootChime:
-Note: AudioDXE will delay your OpenCore load time slightly.
-Follow the guide linked above. Use these values, if they don't work, they may not be the same.
-`AudioCodec`= `0` [Number]
-`AudioDevice` = `PciRoot(0x0)/Pci(0x1F,0x3)` [String]
-`AudioOut`= `0` [Number]
+-   Misc -> Boot -> `PickerMode` = `External` [String] 
+
+
+Setup BootChime: 
+
+Note: AudioDXE will delay your OpenCore load time slightly. 
+
+Follow the guide linked above. Use these values, if they don't work, they may not be the same. 
+
+`AudioCodec`= `0` [Number] 
+
+`AudioDevice` = `PciRoot(0x0)/Pci(0x1F,0x3)` [String] 
+
+`AudioOut`= `0` [Number] 
+
 
 # Sources
 
