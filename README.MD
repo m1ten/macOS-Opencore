@@ -327,7 +327,7 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 - Me having way to much free time
 -  ~~OSX-Aptio-fix2drv-free-2000~~
 
-# Additional Notes
+# Additional Notes and Troubleshooting
 
 **My WiFi doesn't work! How can I access it anyways?**
 
@@ -344,6 +344,15 @@ This laptop has no Ethernet Port, but you aren't SOL.
 Inject it through OpenCore instead of Installing it to L/E. 
 
 Copy HoRNDIS.kext from Tools/HoRNDIS.kext to EFI/OC/Kext/HoRNDIS.kext. OC Snapshot with Propertree.
+
+
+**My trackpad won't work**
+
+I'm not all sure about this one, as mine just, *works*, but you can check here to make sure everything is correct. Note that my exact model has an I2CHID Trackpad, your's could be different. 
+
+[(https://1revenger1.gitbook.io/laptop-guide/prepare-install-macos/setting-up-input-devices](https://1revenger1.gitbook.io/laptop-guide/prepare-install-macos/setting-up-input-devices) 
+
+If it *was* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it,
 
 
 
