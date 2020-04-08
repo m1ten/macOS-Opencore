@@ -1,6 +1,6 @@
 # Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore
 
-Hey, looks like you came across my repository for this device. Looking to hackintosh it? Let's get started!
+Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started!
 
 Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case it's the same as Coffee Lake, and will be referred as so.
 This is wrote for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
@@ -27,15 +27,17 @@ What does work:
 - Sleep and Wake
 - Audio and Internal Combo Port
 - iMessage and FaceTime (Assuming you setup your SMBIOS correctly)
+- ~~that annoying power button LED that flickers when battery is low~~
 
 So, let's set it up!
 -
 First, here's the guide I followed.
 
 [https://1revenger1.gitbook.io/laptop-guide/](https://1revenger1.gitbook.io/laptop-guide/)
-Summary of this guide:
+
+
 *Create the USB and EFI Partition.*
-- Use the `createinstallmedia` or [gibMacOS](https://github.com/corpnewt/gibMacOS) to make the installer. Mount the EFI Partition.
+- Use the `createinstallmedia` command from Apple, or [gibMacOS](https://github.com/corpnewt/gibMacOS) to make the installer. Mount the EFI Partition.
 - Add the OpenCore files to it. Make it look exactly like below (delete files!)
 - - -
 - EFI
@@ -48,10 +50,10 @@ Summary of this guide:
 - - - OpenRuntime.efi (Previously called FWRuntimeServices.efi
 - - Kexts
 - - Tools
-- - OpenShell.efi (Optional - Usefull for accessing the EFI shell)
+- - - OpenShell.efi (Optional - Usefull for accessing the EFI shell)
 - - -
 
-Great! Now that your directory tree looks like this, we need the kext. You can find these in the guide linked above.
+Great! Now that your directory tree looks like this, we need kexts. You can find these in the guide linked above.
 Add these to OC/Kexts
 - VirtualSMC.kext
 - - SMCProcessor.kext
@@ -75,9 +77,9 @@ They may be different for you card, so check here!
 [https://khronokernel-7.gitbook.io/wireless-buyers-guide/types-of-wireless-card/m2](https://khronokernel-7.gitbook.io/wireless-buyers-guide/types-of-wireless-card/m2)
 
 ---
-Got your Kexts? Great, we need to add ACPI Patches for this laptop to make a few more features functional.
+Got your Kexts? Great, we need to add ACPI Patches to add functionality to the laptop.
 
-Some of these are covered here:
+The ACPI Guide is covered here:
 [https://khronokernel.github.io/Getting-Started-With-ACPI/](https://khronokernel.github.io/Getting-Started-With-ACPI/)
 
 
@@ -90,14 +92,18 @@ Some of these are covered here:
 - SSDT-Q11Q12 - Redirects ACPI calls from the keyboard to macOS, to enable using F11 and F12 to adjust the brightness. Also requires two ACPI patches.
 - SSDT-PSF13 - Changes the PrintScreen button from disable trackpad to F13 (Optional)
 # OpenCore config.plist
-Grab the sample.plist file from OC/Docs and paste it to OC/ and rename it to `config.plist`
+Grab the sample.plist file from the Docs folder and paste it to `OC` Folder. Rename it to `config.plist`
 
+Example:
 `EFI/OC/config.plist`
 
 Use [ProperTree](https://github.com/corpnewt/ProperTree) to edit the plist.
-First run `CTRL + R` or `Command + R` and point it at the OC folder. It will automatically add your kexts, drivers, and ACPI patches to the config.
 
-For CoffeeLake, the config.plist is covered here:
+Go to File -> OC Clean Snapshot. Point it at the OC folder.
+
+Note: To OC Snapshot: `CTRL + R` or `Command + R` and point it at the OC folder. It will automatically add your kexts, drivers, and ACPI patches to the config.
+
+For CoffeeLake, the entire config.plist is covered here:
 [https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html](https://khronokernel.github.io/Opencore-Vanilla-Desktop-Guide/config.plist/coffee-lake.html)
 
 A few changes need to be made for this device.
@@ -149,8 +155,10 @@ The complete ACPI guide:
 `Replace` = `58513132 00` [Data]
 
 ---
-**Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) in Windows or Linux to get them.
-Once you're done, look in the results folder and open the OpenCore config.plist, and copy the patches to your config.plist.
+**Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them.
+Once you're done, look in the results folder inside SSDTTime and open the OpenCore config.plist, and copy the patches to your config.plist. Copy SSDT-HPET.aml to EFI/OC/ACPI. If it's named `SSDT-HPET.dsl`, you need to compile it.
+
+That's all for ACPI. And it's a lot.
 
 ---
 Under Booter -> Quirks
@@ -173,23 +181,29 @@ If you have a dedicated / discrete GPU, it is **not** compatible, so make sure t
 
 To properly add the AppleALC layout-id, we'll use DeviceProperties **instead of the boot-argument. If you have `alcid=XX` *remove it.***
 
-My working ALC ID is 11, it goes as follows:
+My working alcid is 11, it goes as follows:
 DeviceProperties -> PciRoot(0x0)/Pci(0x1F,0x3)
 `layout-id` = `0B00000` [Data]
 In depth here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/audio)
 
-If you have a Broadcom BCM94350ZAE WiFi Card (DW1820a) you might be able to get it to work correctly (mine does)
-
+If you have a Broadcom BCM94350ZAE WiFi Card (DW1820a) you might be able to get it to work correctly. (mine does)
 Under DeviceProperties -> PciRoot(0x0)/Pci(0x1D,0x2)/Pci(0x0,0x0)
 `pci-aspm-default` = `0` [Number]
 This will disable power management for the card, and (in my case) it worked.
 
 
-
 # Fixing Apple iCloud, FaceTime, Messages, and other Apple Services.
 
 Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate a SMBIOS, under PlatformInfo -> Generic. In details here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices)
-Make sure you do this correctely! If you get an Apple Support Customer Code, you have to call Apple to get it fixed. Also, **you have to have an Ethernet/WiFi device named en0 and is built-in.**
+Make sure you do this correctly! If you get an Apple Support Customer Code, you have to call Apple to get it fixed. Also, **you will need an Ethernet/WiFi device named en0 and is built-in.**
+
+# Fixing Audio, again!
+You may notice if you have headphones / mic plugged into the Combo port, that waking from sleep completely breaks it.
+To fix it, add Codec Commander to OC/Kexts
+[https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/)
+**Again, make sure to OC Snapshot when adding the kext.**
+Next, run `./install.sh` Inside the HDAFix Folder.
+Reboot.
 
 # Enabling GUI and Boot Chime
 
@@ -215,3 +229,24 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 `AudioDevice` = `PciRoot(0x0)/Pci(0x1F,0x3)` [String]
 `AudioOut`= `0` [Number]
 
+# Sources
+
+- So much useful stuff in Corp's Repos. [https://github.com/corpnewt](https://github.com/corpnewt)
+- Slavs insane brain power - [https://khronokernel.github.io/](https://khronokernel.github.io/)
+- The entire acidanthera repo - [https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
+- r/hackintosh discord server - [https://discord.gg/u8V7N5C](https://discord.gg/u8V7N5C "https://discord.gg/u8V7N5C")
+- Tonymac - [https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/](https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/)
+- My head and limited brain power
+- Me having way to much free time
+-  ~~OSX-Aptio-fix2drv-free-2000~~
+
+# Additional Notes
+
+- My WiFi doesn't work! How can I access it anyways?
+
+~~Just by a working WiFi card, simple.~~
+This laptop has no Ethernet Port, but you aren't SOL.
+
+If you have an Android Phone, you can use [HoRNDIS](https://joshuawise.com/horndis) (Yikes, outdated website.) Also, if you're on Catalina, you might need to run in terminal: `sudo mount -uw/`
+
+If you have an iPhone, you might be able to use TetherMe, but I don't know much about it, so don't ask me.
