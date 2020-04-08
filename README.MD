@@ -117,42 +117,66 @@ The complete ACPI guide:
 **Rename EC0 to EC**
 ---
 
-`Comment` = `Change EC0 to EC` [String]
-`Count` = `0` [Number]
-`Enabled` = `True` [Bool]
-`Find` = `4543305F` [Data]
-`Limit` = 0 [Number]
-`Replace` = `45435F5F` [Data]
+`Comment` = `Change EC0 to EC` [String] 
+
+`Count` = `0` [Number] 
+
+`Enabled` = `True` [Bool] 
+
+`Find` = `4543305F` [Data] 
+
+`Limit` = 0 [Number] 
+
+`Replace` = `45435F5F` [Data] 
+
 
 **Change _OSI to XOSI**
 ---
 
-`Comment` = `Change _OSI to XOSI` [String]
-`Count` = `0` [Number]
-`Enabled` = `True` [Bool]
-`Find` = `5F4F5349` [Data]
-`Limit` = 0 [Number]
-`Replace` = `584F5349` [Data]
+`Comment` = `Change _OSI to XOSI` [String] 
+
+`Count` = `0` [Number] 
+
+`Enabled` = `True` [Bool] 
+
+`Find` = `5F4F5349` [Data] 
+
+`Limit` = 0 [Number] 
+
+`Replace` = `584F5349` [Data] 
+
 
 **Change Method(_Q11,0,N) to XQ11**
 ---
 
-`Comment` = `Change Method(_Q11,0,N) to XQ11` [String]
-`Count` = `0` [Number]
-`Enabled` = `True` [Bool]
-`Find` = `5F513131 00` [Data]
-`Limit` = 0 [Number]
-`Replace` = `58513131 00` [Data]
+`Comment` = `Change Method(_Q11,0,N) to XQ11` [String] 
+
+`Count` = `0` [Number] 
+
+`Enabled` = `True` [Bool] 
+
+`Find` = `5F513131 00` [Data] 
+
+`Limit` = 0 [Number] 
+
+`Replace` = `58513131 00` [Data] 
+
 
 **Change Method(_Q12,0,N) to XQ12**
 ---
 
-`Comment` = `Change Method(_Q12,0,N) to XQ12` [String]
-`Count` = `0` [Number]
-`Enabled` = `True` [Bool]
-`Find` = `5F513132 00` [Data]
-`Limit` = 0 [Number]
-`Replace` = `58513132 00` [Data]
+`Comment` = `Change Method(_Q12,0,N) to XQ12` [String] 
+
+`Count` = `0` [Number] 
+
+`Enabled` = `True` [Bool] 
+
+`Find` = `5F513132 00` [Data] 
+
+`Limit` = 0 [Number] 
+
+`Replace` = `58513132 00` [Data] 
+
 
 ---
 **Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them.
