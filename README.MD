@@ -3,7 +3,7 @@
 Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started!
 
 Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case it's the same as Coffee Lake, and will be referred as so.
-This is wrote for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
+This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
 
 First, let's start with what doesn't work.
 -
@@ -47,7 +47,7 @@ First, here's the guide I followed.
 - - Drivers
 - - - APFSDriveLoader.efi
 - - - HFSPlus.efi (Don't use vBoxHFS, it's slow)
-- - - OpenRuntime.efi (Previously called FWRuntimeServices.efi
+- - - OpenRuntime.efi (Previously called FWRuntimeServices.efi)
 - - Kexts
 - - Tools
 - - - OpenShell.efi (Optional - Usefull for accessing the EFI shell)
