@@ -196,7 +196,8 @@ The complete ACPI guide:
 
 
 ---
-**Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them.
+**Wait!** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them. 
+
 Once you're done, look in the results folder inside SSDTTime and open the OpenCore config.plist, and copy the patches to your config.plist. Copy SSDT-HPET.aml to EFI/OC/ACPI. If it's named `SSDT-HPET.dsl`, you need to compile it. 
 
 That's all for ACPI. And it's a lot. 
@@ -330,9 +331,11 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 
 - My WiFi doesn't work! How can I access it anyways?
 
-~~Just by a working WiFi card, simple.~~
+~~Just buy a working WiFi card, simple.~~ 
+
 This laptop has no Ethernet Port, but you aren't SOL.
 
-If you have an Android Phone, you can use [HoRNDIS](https://joshuawise.com/horndis) (Yikes, outdated website.) Also, if you're on Catalina, you might need to run in terminal: `sudo mount -uw/`
+If you have an Android Phone, you can use [HoRNDIS](https://joshuawise.com/horndis) (Yikes, outdated website.) Also, if you're on Catalina, you might need to run in terminal: 
+`sudo mount -uw/`
 
 If you have an iPhone, you might be able to use TetherMe, but I don't know much about it, so don't ask me.
