@@ -21,9 +21,9 @@ Update History:
 
 ---
 
-First, let's start with what doesn't work.
+What does not work:
 
--
+
 
 - HDMI Port (To be fixed, I haven't worked on it.)
 
@@ -37,7 +37,7 @@ First, let's start with what doesn't work.
 
 What does work:
 
--
+
 
 - Keyboard
 
@@ -71,7 +71,7 @@ What does work:
 
 So, let's set it up!
 
--
+---
 
 BIOS Settings
 
@@ -737,3 +737,7 @@ Also, I would be *_highly against_* using USB WiFi in macOS, I would *_highly_* 
   
 
 Make sure that your storage settings is set to AHCI instead of RAID.
+
+
+Notes:
+For the HDMI Port - I don't consider throwing a bunch of patches made by hackintool a real fix.
