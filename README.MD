@@ -750,8 +750,10 @@ Also, I would be *_highly against_* using USB WiFi in macOS, I would *_highly_* 
 Make sure that your storage settings is set to AHCI instead of RAID.
 
 
-Notes: 
+# Notes: 
 
-For the HDMI Port - I'm working on it, but i'ts been very tough. 
+For the HDMI Port - I'm working on it, but it's been very tough. 
 
 For the trackpad, If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.
+
+I'll look into fixing smooth brightness adjustment in the future.
