@@ -21,11 +21,21 @@ Update History:
 
 ---
 
+Known Issues / Quirks
+
+- FN + K will lower brightness.
+- FN + P will increase brightness.
+- Brightness adjustment isn't smooth.
+- Trackpad can't be used to wake up from sleep, once the keyboard backlight turns off.
+- Power button doesn't bring up the power menu.
+
+---
+
 What does not work:
 
 
 
-- HDMI Port (To be fixed, I haven't worked on it.)
+- HDMI Port - See notes below
 
 - SD Card Reader (O2 Card Readers can be renamed, Sinetek's driver for Realtek cards hung at boot for me)
 
@@ -41,7 +51,7 @@ What does work:
 
 - Keyboard
 
-- Trackpad, full gestures.
+- Trackpad, full gestures
 
 - Camera
 
@@ -718,7 +728,8 @@ This laptop has no Ethernet Port, but you aren't SOL.
 
   
 
-- If you have an Android Phone, you can use HoRNDIS.
+- If you have an Android Phone, you can use HoRNDIS. 
+
 
 Inject it through OpenCore instead of using the installer, as the installer installs the kext to Library/Extensions.
 
@@ -739,5 +750,8 @@ Also, I would be *_highly against_* using USB WiFi in macOS, I would *_highly_* 
 Make sure that your storage settings is set to AHCI instead of RAID.
 
 
-Notes:
-For the HDMI Port - I don't consider throwing a bunch of patches made by hackintool a real fix.
+Notes: 
+
+For the HDMI Port - I'm working on it, but i'ts been very tough. 
+
+For the trackpad, If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.
