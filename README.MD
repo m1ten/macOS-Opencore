@@ -11,7 +11,15 @@ Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case it's 
 
 This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
 
-  
+---
+
+Update History:
+- macOS 10.15.2: Successful
+- macOS 10.15.3: Successful
+- macOS 10.15.4: Successful - See notes for trackpad
+- macOS 10.15.4 Supplemental Update: Successful - See notes for trackpad
+
+---
 
 First, let's start with what doesn't work.
 
@@ -687,8 +695,8 @@ I'm not all sure about this one, as mine just, *_works_*, but you can check here
 [https://1revenger1.gitbook.io/laptop-guide/prepare-install-macos/setting-up-input-devices](https://1revenger1.gitbook.io/laptop-guide/prepare-install-macos/setting-up-input-devices)
 
   
-
-If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.x
+**IF YOU UPDATED AND IT ISN'T WORKING***
+If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.
 
   
 
