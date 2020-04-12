@@ -687,6 +687,9 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 
 # Experimental HDMI Tutorial
 
+
+![HDMI Working on Core i3-8145U Model](https://i.imgur.com/eHeHHCK.jpg)
+
 - Notes:
 - - HDMI Hotplug will take multiple attempts before initiating
 - - 10.15.4 makes the port a lot less reliable, **avoid the update by using the `ChangeUpdates.txt` file in the tools folder to completely ignore the update. With this update, the HDMI port won't initialize on boot or when waking up the computer.
@@ -814,4 +817,3 @@ Make sure that your storage settings is set to AHCI instead of RAID.
 
 - Me staying up until 7am messing with the HDMI port.
 
-  
