@@ -704,7 +704,7 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 - - LVDS is for the eDP Internal Display.
 - - As you can see, my HDMI port is Index 2 (Port 0x06) and requires Bus ID 0x02 to function. Setting the Pipe to 18 can sometimes help hot-plug issues. However, it's not perfect and may require multiple attempts.
 
-![Hackintool Connectors](https://imgur.com/a/ihPbiEy)
+![Hackintool Connectors](https://i.imgur.com/VKSf5FD.png)
 
 
 Full guide: https://www.tonymacx86.com/threads/guide-general-framebuffer-patching-guide-hdmi-black-screen-problem.269149/
