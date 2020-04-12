@@ -797,7 +797,7 @@ Also, I would be *_highly against_* using USB WiFi in macOS, I would *_highly_* 
 Make sure that your storage settings is set to AHCI instead of RAID.
 
 
-
+***macOS 10.15.4 makes the HDMI port a whole lot less reliable, read through the HDMI tutorial for more information.***
 # To Do
 
 - HDMI Port Hot Plug reliability on Whiskey Lake i3s. If you're on an i5, check 4mit's guide from tonymac.
