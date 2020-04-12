@@ -20,18 +20,18 @@ This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is rele
 - Added NVMeFix to increase battery life.
 - Updated VoodooI2C and added VoodooInput
 - - Trackpad dragging bug is fixed now
-- Added a USB Map (Necessary for USB 2.0 hot-plug while using the HDMI port)
+- Added a USB Map (necessary for USB 2.0 hot-plug while using the HDMI port)
 - Experimental HDMI Support: *see notes for tutorial*
 
 
 ---
 
 Update History:
-- macOS 10.15.4: *works*
+- macOS 10.14.4: *Works, however feels less fluid than Catalina.*
 - macOS 10.15.2: Successful
-- macOS 10.15.3: Successful
-- macOS 10.15.4: Successful - See notes for trackpad **and HDMI**
-- macOS 10.15.4 Supplemental Update: Successful - See notes for trackpad
+- macOS 10.15.3: Successful - see notes for trackpad
+- macOS 10.15.4: Successful - see notes for trackpad **and HDMI**
+- macOS 10.15.4 Supplemental Update: Successful - see notes for trackpad
 
 ---
 
