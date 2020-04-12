@@ -20,13 +20,14 @@ This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is rele
 - Added NVMeFix to increase battery life.
 - Updated VoodooI2C and added VoodooInput
 - - Trackpad dragging bug is fixed now
-- Added a USB Map (Nessecary for USB 2.0 Hotplug while using the HDMI port)
-- Experiemental HDMI Support: *see notes for tutorial*
+- Added a USB Map (Necessary for USB 2.0 hot-plug while using the HDMI port)
+- Experimental HDMI Support: *see notes for tutorial*
 
 
 ---
 
 Update History:
+- macOS 10.15.4: *works*
 - macOS 10.15.2: Successful
 - macOS 10.15.3: Successful
 - macOS 10.15.4: Successful - See notes for trackpad **and HDMI**
@@ -691,7 +692,7 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 ![HDMI Working on Core i3-8145U Model](https://i.imgur.com/eHeHHCK.jpg)
 
 - Notes:
-- - HDMI Hotplug will take multiple attempts before initiating
+- - HDMI hot-plug will take multiple attempts before initiating
 - - 10.15.4 makes the port a lot less reliable, **avoid the update** by using the `ChangeUpdates.txt` file in the tools folder to completely ignore the update. With this update, the HDMI port won't initialize on boot or when waking up the computer.
 - - Be ready to change your SMBIOS data.
 - - This guide is explicitly for the i3-8145U model, for the i5, and i7 models, see the tonymac link in the credits.
@@ -724,12 +725,12 @@ That's how you can identify your port, instead of guessing.
 
 # USB Mapping
 
-After you setup your HDMI port, your USB ports should also be setup correctly. In my case - USB 3.0 worked, however USB 2.0 Hotplug was completely messed up. No worries, fixing USB is really easy.
+After you setup your HDMI port, your USB ports should also be setup correctly. In my case - USB 3.0 worked, however USB 2.0 hot-plug was completely messed up. No worries, fixing USB is really easy.
 
 
 Summary: Plug in a USB 2.0 device to every USB port, set the ports that light up green as USB 2, plug a USB 3.0 device, set the types as USB 3.0.
 
-Remove Unused Connectors by hightlighing and pressing the Remove button.
+Remove Unused Connectors by highlighting and pressing the Remove button.
 
 Add the USBPorts.kext to EFI/OC/Kexts/ and use OC Snapshot in ProperTree.
 
@@ -798,7 +799,7 @@ Make sure that your storage settings is set to AHCI instead of RAID.
 ***macOS 10.15.4 makes the HDMI port a whole lot less reliable, read through the HDMI tutorial for more information.***
 # To Do
 
-- HDMI Port Hot Plug reliability on Whiskey Lake i3s. If you're on an i5, check 4mit's guide from tonymac.
+- HDMI Port hot-plug reliability on Whiskey Lake i3s. If you're on an i5, check 4mit's guide from tonymac.
 - Better Sleep function through ACPI patches. (Note when you close the laptop display it still takes a while to actually sleep. Wake up times are acceptable.
 - Attempt to get the Realtek SD Card Reader to function. (Sineteks driver hung the system at `gIOConsoleUsers,` prevented the iGPU from initializing. Will look into.
 - Add pictures to my guide to make it prettier.
