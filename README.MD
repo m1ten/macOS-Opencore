@@ -591,21 +591,7 @@ You may notice if you have headphones / mic plugged into the Combo port, that wa
 
   
 
-To fix it, add Codec Commander to OC/Kexts.
-
-  
-
-[https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/](https://bitbucket.org/RehabMan/os-x-eapd-codec-commander/downloads/)
-
-  
-
-****Again, make sure to OC Snapshot when adding the kext.****
-
-  
-
-Next, run `./install.sh` Inside the HDAFix Folder.
-
-  
+Run `./install.sh` Inside the HDAFix Folder. Gatekeeper will deny it so you must go to Settings -> Security to allow ALCPlugFix and hdafix to run. AppleALC will take care of the rest.
 
 Reboot.
 
