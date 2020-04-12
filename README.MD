@@ -1,4 +1,5 @@
 
+
 # Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore
 
   
@@ -11,31 +12,42 @@ Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case it's 
 
 This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
 
+
+***April 12, 2020 Update***
+
+- Removed CodecCommander
+- Removed all audio sounds, except for Boot Chimes
+- Added NVMeFix to increase battery life.
+- Updated VoodooI2C and added VoodooInput
+- - Trackpad dragging bug is fixed now
+- Added a USB Map (Nessecary for USB 2.0 Hotplug while using the HDMI port)
+- Experiemental HDMI Support: *see notes for tutorial*
+
+
 ---
 
 Update History:
 - macOS 10.15.2: Successful
 - macOS 10.15.3: Successful
-- macOS 10.15.4: Successful - See notes for trackpad
+- macOS 10.15.4: Successful - See notes for trackpad **and HDMI**
 - macOS 10.15.4 Supplemental Update: Successful - See notes for trackpad
 
 ---
 
-Known Issues / Quirks
+Known Quirks
 
 - FN + K will lower brightness.
 - FN + P will increase brightness.
 - Brightness adjustment isn't smooth.
-- Trackpad can't be used to wake up from sleep, once the keyboard backlight turns off.
+- Trackpad can't be used to wake up from sleep, once the keyboard backlight turns off. (Full Sleep Mode)
+- ACPI Power Button can't be used to wake up the machine until it is completely awake. This won't be a problem, just use the keyboard to wake up the machine.
 - Power button doesn't bring up the power menu.
+
 
 ---
 
 What does not work:
 
-
-
-- HDMI Port - See notes below
 
 - SD Card Reader (O2 Card Readers can be renamed, Sinetek's driver for Realtek cards hung at boot for me)
 
@@ -43,6 +55,10 @@ What does not work:
 
 - Intel WiFi. This ****must**** be replaced in order to use WiFi.
 
+- BCM94350ZAE Bluetooth - will look into.
+
+
+  ---
   
 
 What does work:
@@ -176,9 +192,9 @@ If you have working WiFi (a compatible WiFi Card that ****isn't**** a real Apple
 
 - BrcmBluetoothInjector.kext
 
-- - BrcmFirmwareData.kext
+- BrcmFirmwareData.kext
 
-- - BrcmPatchRAM3.kext
+- BrcmPatchRAM3.kext
 
   
 
@@ -212,15 +228,17 @@ The ACPI Guide is covered here:
 
 - SSDT-XOSI - Redirects _OSI to XOSI calls (Required for trackpad support)
 
-- SSDT-PNLFCFL - SSDT-PNLF doesn't work on some CofeeLake laptops, SSDT-PNLFCFL will enable the backlight and brightness adjustment.
+- SSDT-PNLFCFL - SSDT-PNLF doesn't work on Whiskey Lake, SSDT-PNLFCFL is specifically for this and some Coffee lake laptops, it will enable the backlight and brightness adjustment. (But it won't make the brightness keys work!)
 
-- SSDT-PLUG - plugin-type=1 for OpenCore, native CPU Power management.
+- SSDT-Q11Q12 - Redirects ACPI calls from the keyboard to macOS, to enable using F11 and F12 to adjust the brightness. Also requires two ACPI patches.
+
+- SSDT-PLUG - plugin-type=1 for OpenCore, enables native CPU Power management. Note you have too look into your DSDT and change some values.
 
 - SSDT-HPET - used with a handful of ACPI Patches to fix IRQ conflicts in the DSDT. (We will generate this later!)
 
 - SSDT-GPRW - Lets the laptop sleep and wake up! No more insomnia in macOS.
 
-- SSDT-Q11Q12 - Redirects ACPI calls from the keyboard to macOS, to enable using F11 and F12 to adjust the brightness. Also requires two ACPI patches.
+
 
 - SSDT-PSF13 - Changes the PrintScreen button from disable trackpad to F13 (Optional)
 
@@ -467,6 +485,7 @@ Under DeviceProperties -> PciRoot(0x0)/Pci(0x2,0x0)
   
 
   
+**Skip this section and change it too the values in the Experimental HDMI Support section if you plan to use HDMI.**
 
 For a UHD 620:
 
@@ -556,7 +575,7 @@ This will disable power management for the card, and (in my case) it worked.
 
   
 
-Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate a SMBIOS, under PlatformInfo -> Generic. In details here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices)
+Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate a SMBIOS, under PlatformInfo -> Generic. Use `MacBookPro14,1` if you plan to use HDMI. In details here: [https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices](https://khronokernel-2.gitbook.io/opencore-vanilla-desktop-guide/post-install/post-install/iservices)
 
   
 
@@ -628,7 +647,7 @@ Example: `EFI/OC/Drivers/OpenCanopy.efi`
 
   
 
-****Do not forget to run ProperTree Snapshot (CTRL / Command + R) to add it to your config.plist****
+****Do not forget to run OC Snapshot (CTRL / Command + R) to add it to your config.plist****
 
   
 
@@ -666,30 +685,58 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 
   
 
-  
+# Experimental HDMI Tutorial
 
-# Sources
+- Notes:
+- - HDMI Hotplug will take multiple attempts before initiating
+- - 10.15.4 makes the port a lot less reliable, **avoid the update by using the `ChangeUpdates.txt` file in the tools folder to completely ignore the update. With this update, the HDMI port won't initialize on boot or when waking up the computer.
+- - Be ready to change your SMBIOS data.
+- - This guide is explicitly for the i3-8145U model, for the i5, and i7 models, see the tonymac link in the credits.
+**Setting up the config.plist**
 
-  
+- Use GenSMBIOS to generate a SMBIOS for `MacBookPro14,1`
+- *change GPU to Iris 655 to match SMBIOS:*
+- - Set `device-id` to `0x3EA50009`, `0900A53E` Hexswapped for DeviceProperties
+- - Set `AAPL,ig-platform-id` to `0x3EA58086`, `3EA50009` Hexswapped for DeviceProperties
+- Use Hackintool to generate a framebuffer patch using these settings:
 
-- So much useful stuff in Corp's Repos. [https://github.com/corpnewt](https://github.com/corpnewt)
+- Pre-Notes: You mileage may vary
+- - LVDS is for the eDP Internal Display.
+- - As you can see, my HDMI port is Index 2 (Port 0x06) and requires Bus ID 0x02 to function. Setting the Pipe to 18 can sometimes help hot-plug issues. However, it's not perfect and may require multiple attempts.
 
-- Slavs insane brain power - [https://khronokernel.github.io/](https://khronokernel.github.io/)
+---
+|Index|Bus ID|Pipe|Type|
+|-|--|--|--|--|
+|0|0x00|18|LVDS|
+|2|0x02|18|HDMI|
+|-1|0x00|0|Dummy|
+---
 
-- The entire acidanthera repo - [https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
 
-- r/hackintosh discord server - [https://discord.gg/u8V7N5C](https://discord.gg/u8V7N5C "https://discord.gg/u8V7N5C")
+Full guide: https://www.tonymacx86.com/threads/guide-general-framebuffer-patching-guide-hdmi-black-screen-problem.269149/
 
-- Tonymac - [https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/](https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/)
 
-- My head and limited brain power
+**Tip:** To find your HDMI Index - Set each connector to -1 one at a time, 
+when you plug in your HDMI port it will kernel panic.
 
-- Me having way to much free time
+For example, my HDMI Port Index is 2, when set to -1 it will kernel panic. 
 
--  ~~OSX-Aptio-fix2drv-free-2000~~
+That's how you can identify your port, instead of guessing.
 
-  
 
+# USB Mapping
+
+After you setup your HDMI port, your USB ports should also be setup correctly. In my case - USB 3.0 worked, however USB 2.0 Hotplug was completely messed up. No worries, fixing USB is really easy.
+
+
+Summary: Plug in a USB 2.0 device to every USB port, set the ports that light up green as USB 2, plug a USB 3.0 device, set the types as USB 3.0.
+
+Remove Unused Connectors by hightlighing and pressing the Remove button.
+
+Add the USBPorts.kext to EFI/OC/Kexts/ and use OC Snapshot in ProperTree.
+
+The guide isn't perfect, but it will give you a general idea on what to do.
+https://www.tonymacx86.com/threads/the-new-beginners-guide-to-usb-port-configuration.286553/
 # Additional Notes and Troubleshooting
 
   
@@ -750,10 +797,27 @@ Also, I would be *_highly against_* using USB WiFi in macOS, I would *_highly_* 
 Make sure that your storage settings is set to AHCI instead of RAID.
 
 
-# Notes: 
 
-For the HDMI Port - I'm working on it, but it's been very tough. 
+# To Do
 
-For the trackpad, If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.
+- HDMI Port Hot Plug reliability on Whiskey Lake i3s. If you're on an i5, check 4mit's guide from tonymac.
+- Better Sleep function through ACPI patches. (Note when you close the laptop display it still takes a while to actually sleep. Wake up times are acceptable.
+- Attempt to get the Realtek SD Card Reader to function. (Sineteks driver hung the system at `gIOConsoleUsers,` prevented the iGPU from initializing. Will look into.
+- Add pictures to my guide to make it prettier.
 
-I'll look into fixing smooth brightness adjustment in the future.
+# Sources
+
+
+- So much useful stuff in Corp's Repos. [https://github.com/corpnewt](https://github.com/corpnewt)
+
+- Slavs insane brain power - [https://khronokernel.github.io/](https://khronokernel.github.io/)
+
+- The entire acidanthera repo - [https://github.com/acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
+
+- r/hackintosh discord server - [https://discord.gg/u8V7N5C](https://discord.gg/u8V7N5C "https://discord.gg/u8V7N5C")
+
+- Tonymac - [https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/](https://www.tonymacx86.com/threads/guide-lenovo-ideapad-s340-laptop-on-catalina.288003/)
+
+- Me staying up until 7am messing with the HDMI port.
+
+  
