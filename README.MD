@@ -42,7 +42,7 @@ Known Quirks
 - FN + P will increase brightness.
 - Brightness adjustment isn't smooth.
 - Trackpad can't be used to wake up from sleep, once the keyboard backlight turns off. (Full Sleep Mode)
-- ACPI Power Button can't be used to wake up the machine until it is completely awake. This won't be a problem, just use the keyboard to wake up the machine.
+- Power Button can't be used to wake up the machine until it is completely asleep. This won't be a problem, just use the keyboard to wake up the machine.
 - Power button doesn't bring up the power menu.
 
 
