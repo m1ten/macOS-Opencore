@@ -1,0 +1,15 @@
+------------------------------------------
+Ignore Updates:
+
+sudo /usr/sbin/softwareupdate --ignore "macOS Catalina 10.15.4 Update"
+------------------------------------------
+
+
+
+
+------------------------------------------
+Reset Ignored Updates:
+
+sudo /usr/sbin/softwareupdate --reset-ignored
+------------------------------------------
+
