@@ -63,7 +63,7 @@ What does not work:
   ---
   
 
-What does work (Mostly everything you'd expect:
+What does work (Mostly everything you'd expect):
 
 
 
@@ -706,7 +706,8 @@ I'm not all sure about this one, as mine just, *_works_*, but you can check here
 
   
 **IF YOU UPDATED AND IT ISN'T WORKING***
-If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting may fix it.
+
+If it *_was_* working and stopped after an update, running `sudo kextcache -i /` and rebooting will fix it.
 
   
 
@@ -753,9 +754,9 @@ Make sure that your storage settings is set to AHCI instead of RAID.
 ***macOS 10.15.4 makes the HDMI port a whole lot less reliable, read through the HDMI tutorial for more information.***
 # To Do
 
-- HDMI Port hot-plug reliability on Whiskey Lake i3s. If you're on an i5, check 4mit's guide from tonymac.
-- Better Sleep function through ACPI patches. (Note when you close the laptop display it still takes a while to actually sleep. Wake up times are acceptable.
-- Attempt to get the Realtek SD Card Reader to function. (Sineteks driver hung the system at `gIOConsoleUsers,` prevented the iGPU from initializing. Will look into.
+- HDMI Port hot-plug reliability
+- Better Sleep function through ACPI patches. (Note when you close the laptop display it still takes a while to actually sleep. Wake up times are acceptable)
+- Attempt to get the Realtek SD Card Reader to function. (Sineteks driver hung the system at `gIOConsoleUsers,` prevented the iGPU from initializing. Will look into)
 - Add pictures to my guide to make it prettier.
 
 # Sources
