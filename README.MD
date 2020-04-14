@@ -1,5 +1,6 @@
 
 
+
 # Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore
 
   
@@ -8,9 +9,11 @@ Hey, looks like you came across my repository for this device. Looking to instal
 
   
 
-Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case it's the same as Coffee Lake, and will be referred as so.
-
+Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case as it's an 8th Gen CPU, we will follow the Coffee Lake guidelines.
 This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
+
+***April 13, 2020 Update***
+- Updated Guide
 
 
 ***April 12, 2020 Update***
@@ -20,9 +23,8 @@ This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is rele
 - Added NVMeFix to increase battery life.
 - Updated VoodooI2C and added VoodooInput
 - - Trackpad dragging bug is fixed now
-- Added a USB Map (necessary for USB 2.0 hot-plug while using the HDMI port)
-- Experimental HDMI Support: *see notes for tutorial*
-
+- Added a USB Map (necessary for USB 2.0 hot-plug)
+- HDMI Support
 
 ---
 
@@ -41,11 +43,9 @@ Known Quirks
 - FN + K will lower brightness.
 - FN + P will increase brightness.
 - Brightness adjustment isn't smooth.
-- Trackpad can't be used to wake up from sleep, once the keyboard backlight turns off. (Full Sleep Mode)
+- Trackpad can't be used to wake up from sleep.
 - Power Button can't be used to wake up the machine until it is completely asleep. This won't be a problem, just use the keyboard to wake up the machine.
 - Power button doesn't bring up the power menu.
-
-
 ---
 
 What does not work:
@@ -55,7 +55,7 @@ What does not work:
 
 - DRM - This won't work any iGPU, because Intel's graphics cards don't support FairPlay.
 
-- Intel WiFi. This ****must**** be replaced in order to use WiFi.
+- Intel WiFi. This **must** be replaced in order to use WiFi.
 
 - BCM94350ZAE Bluetooth - will look into.
 
@@ -63,7 +63,7 @@ What does not work:
   ---
   
 
-What does work:
+What does work (Mostly everything you'd expect:
 
 
 
@@ -485,48 +485,16 @@ Under Booter -> Quirks
 Under DeviceProperties -> PciRoot(0x0)/Pci(0x2,0x0)
 
   
+For a UHD 620 / UHD 630 on WhiskeyLake:
 
   
-**Skip this section and change it too the values in the Experimental HDMI Support section if you plan to use HDMI.**
-
-For a UHD 620:
-
-  
-
-`device-id` = `9B3E0000` [Data]
+`AAPL,ig-platform-id` = `0900A53E` [Data]
+`device-id` = `A53E0000` [Data]
 
   
-
-`AAPL,ig-platform-id` = `00009B3E` [Data]
-
-  
+If you have a dedicated / discrete GPU, it is ****not**** compatible, so make sure to disable it! Use an SSDT to fully disable it, or use the boot-argument `-wegnoegpu` to hide it from macOS. You can also check the DeviceProperties equivalent in the WhateverGreen Faq.
 
   
-
-For a UHD 630:
-
-  
-
-Go to ark.intel.com and check your iGPU's device-id. If it's `0x3E9B`, you do not need a device-id.
-
-  
-
-`device-id` = `9B3E0000` [Data]
-
-  
-
-`AAPL,ig-platform-id` = `00009B3E` [Data]
-
-  
-
-  
-
-If you have a dedicated / discrete GPU, it is ****not**** compatible, so make sure to disable it!
-
-  
-
-  
-
 To properly add the AppleALC layout-id, we'll use DeviceProperties ****instead of the boot-argument. If you have** `alcid=XX`  ***_remove it._*****
 
   
@@ -673,13 +641,13 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 
   
 
-# Experimental HDMI Tutorial
+# HDMI Tutorial
 
 
 ![HDMI Working on Core i3-8145U Model](https://i.imgur.com/eHeHHCK.jpg)
 
 - Notes:
-- - HDMI hot-plug will take multiple attempts before initiating
+- - HDMI hot-plug may take multiple attempts before initiating in rapid secession.
 - - 10.15.4 makes the port a lot less reliable, **avoid the update** by using the `ChangeUpdates.txt` file in the tools folder to completely ignore the update. With this update, the HDMI port won't initialize on boot or when waking up the computer.
 - - Be ready to change your SMBIOS data.
 - - This guide is explicitly for the i3-8145U model, for the i5, and i7 models, see the tonymac link in the credits.
@@ -687,7 +655,7 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 **Setting up the config.plist**
 
 - Use GenSMBIOS to generate a SMBIOS for `MacBookPro14,1`
-- *change GPU to Iris 655 to match SMBIOS:*
+- *Change GPU to Iris 655 to match SMBIOS:*
 - - Set `device-id` to `0x3EA50009`, `0900A53E` Hexswapped for DeviceProperties
 - - Set `AAPL,ig-platform-id` to `0x3EA58086`, `3EA50009` Hexswapped for DeviceProperties
 - Use Hackintool to generate a framebuffer patch using these settings:
