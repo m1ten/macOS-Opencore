@@ -650,7 +650,6 @@ Follow the guide linked above. Use these values, if they don't work, they may no
 - - HDMI hot-plug may take multiple attempts before initiating in rapid secession.
 - - 10.15.4 makes the port a lot less reliable, **avoid the update** by using the `ChangeUpdates.txt` file in the tools folder to completely ignore the update. With this update, the HDMI port won't initialize on boot or when waking up the computer.
 - - Be ready to change your SMBIOS data.
-- - This guide is explicitly for the i3-8145U model, for the i5, and i7 models, see the tonymac link in the credits.
 
 **Setting up the config.plist**
 
