@@ -46,6 +46,7 @@ Known Quirks
 - Trackpad can't be used to wake up from sleep.
 - Power Button can't be used to wake up the machine until it is completely asleep. This won't be a problem, just use the keyboard to wake up the machine.
 - Power button doesn't bring up the power menu.
+- It has came to my attention HDMI has a yellow tint issue.
 ---
 
 What does not work:
