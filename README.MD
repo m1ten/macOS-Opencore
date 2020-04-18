@@ -24,7 +24,7 @@ This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is rele
   
 *****_April 18, 2020 Update_*****
 - Moved VoodooInput kext locations to correct position on Kernel -> Add
-- Added CPUFriend and CPUFriendDataProvider. Link on how to create: [https://github.com/corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
+- Added CPUFriend and CPUFriendDataProvider. Link on how to create: (Is disabled in config) [https://github.com/corpnewt/CPUFriendFriend](https://github.com/corpnewt/CPUFriendFriend)
 - Changed Kernel Quirks - You must disable CFG-Lock in BIOS if you want to keep the `AppleCpuPmCfgLock` off. This will also improve boot times. Source: [https://github.com/Hasodikis/Lenovo-Ideapad-s540-14IWL---Hackintosh](https://github.com/Hasodikis/Lenovo-Ideapad-s540-14IWL---Hackintosh) (Scroll down for tutorial)
 
 
