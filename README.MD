@@ -103,15 +103,7 @@ Known Quirks
 
   
 
-What does not work:
-
-  
-
-  
-
-- SD Card Reader (O2 Card Readers can be renamed, Sinetek's driver for Realtek cards hung at boot for me)
-
-  
+What does not work:  
 
 - DRM - This won't work any iGPU, because Intel's graphics cards don't support FairPlay.
 
@@ -137,7 +129,7 @@ What does work (Mostly everything you'd expect):
 
   
 
-  
+  -SD Card
 
 - Keyboard
 
@@ -1133,6 +1125,15 @@ For example, my HDMI Port Index is 2, when set to -1 it will kernel panic.
 That's how you can identify your port, instead of guessing.
 
   
+# SD Card
+
+O2 Readers will need to be renamed (see tonymac post)
+
+Realtek cards have support now
+
+Use cholonam's fork of Sinteks driver
+
+https://github.com/cholonam/Sinetek-rtsx/releases
 
   
 
@@ -1160,7 +1161,7 @@ Add the USBPorts.kext to EFI/OC/Kexts/ and use OC Snapshot in ProperTree.
 
 The guide isn't perfect, but it will give you a general idea on what to do.
 
-https://www.tonymacx86.com/threads/the-new-beginners-guide-to-usb-port-configuration.286553/
+[https://www.tonymacx86.com/threads/the-new-beginners-guide-to-usb-port-configuration.286553/](https://github.com/cholonam/Sinetek-rtsx/releases)
 
 # Additional Notes and Troubleshooting
 
