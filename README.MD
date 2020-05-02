@@ -129,7 +129,7 @@ What does work (Mostly everything you'd expect):
 
   
 
-  -SD Card
+
 
 - Keyboard
 
@@ -149,7 +149,10 @@ What does work (Mostly everything you'd expect):
 
 - CPU Power Management
 
-  
+
+- SD Card
+
+
 
 - Battery
 
@@ -1264,12 +1267,6 @@ Make sure that your storage settings is set to AHCI instead of RAID.
   
 
 - HDMI Port hot-plug reliability
-
-- Better Sleep function through ACPI patches. (Note when you close the laptop display it still takes a while to actually sleep. Wake up times are acceptable)
-
-- Attempt to get the Realtek SD Card Reader to function. (Sineteks driver hung the system at `gIOConsoleUsers,` prevented the iGPU from initializing. Will look into)
-
-- Add pictures to my guide to make it prettier.
 
   
 
