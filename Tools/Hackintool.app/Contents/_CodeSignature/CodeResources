@@ -26,7 +26,7 @@
 		</data>
 		<key>Resources/Assets.car</key>
 		<data>
-		PyYnGWdR5acwy1jn43vypRTArzk=
+		+Q0Ch9I+VfUYn07IVmE+jWkZ5hE=
 		</data>
 		<key>Resources/Audio/Codecs.plist</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Resources/Base.lproj/MainMenu.nib</key>
 		<data>
-		uPZXK9wmk8eq4pmGgGcJ5uCun4w=
+		yrIHhmugrq0DyXHEkb25IxZVP8o=
 		</data>
 		<key>Resources/Clover/config_patches.plist</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Resources/Framebuffer/macOS 10.13.6/PlatformIDs.plist</key>
 		<data>
-		K+KDtfbGsOpCHP5Lax8JVMyYeyk=
+		NC4z3SodTnOHkVPvUNtsk0cUHzg=
 		</data>
 		<key>Resources/Framebuffer/macOS 10.13.6/Sandy Bridge.bin</key>
 		<data>
@@ -140,6 +140,10 @@
 		<data>
 		UkoJkPtaD9iLk7Iz26qpuJnuCbU=
 		</data>
+		<key>Resources/Framebuffer/macOS 10.14/Ice Lake (LP).bin</key>
+		<data>
+		YuoZDPdshqKgtnH1tZfuj1jBIj8=
+		</data>
 		<key>Resources/Framebuffer/macOS 10.14/Ivy Bridge.bin</key>
 		<data>
 		RfkTSKox/6dk4o+4pDW+4oJ1e1g=
@@ -150,7 +154,7 @@
 		</data>
 		<key>Resources/Framebuffer/macOS 10.14/PlatformIDs.plist</key>
 		<data>
-		c1XNcuaAeCGECOsPzukAiG5PGdM=
+		JrrKLx5HhivcnhyAODy1Xrb1jmo=
 		</data>
 		<key>Resources/Framebuffer/macOS 10.14/Skylake.bin</key>
 		<data>
@@ -886,7 +890,7 @@
 		</data>
 		<key>Resources/Intel/DeviceIDs.plist</key>
 		<data>
-		6uAkjfq37vnn4oEEz+Bx3jQwqZo=
+		UyFQ1dLroip7tiO2pJdetowCEYg=
 		</data>
 		<key>Resources/Intel/FBDrivers.plist</key>
 		<data>
@@ -894,7 +898,7 @@
 		</data>
 		<key>Resources/Intel/GPUs.plist</key>
 		<data>
-		WSZHbUmBdo2bJebjiVUD/AiMCa4=
+		1aCtpKpgJJUQXLgnYK4bQyomxUQ=
 		</data>
 		<key>Resources/Intel/Models.plist</key>
 		<data>
@@ -1138,7 +1142,7 @@
 		</data>
 		<key>Resources/Kexts/kexts.plist</key>
 		<data>
-		UDCmNczQhpkoFqU/Ib+bpzhTBJs=
+		ZIpk3E2T/qOrMEWkJ+fbI6bGyZY=
 		</data>
 		<key>Resources/OpenCore/config.plist</key>
 		<data>
@@ -1324,11 +1328,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PyYnGWdR5acwy1jn43vypRTArzk=
+			+Q0Ch9I+VfUYn07IVmE+jWkZ5hE=
 			</data>
 			<key>hash2</key>
 			<data>
-			FaiZZ1efGcztj3S9VAFi6ZYYtmGj/Wcfn14a6rCUjY0=
+			HEAOIy9kiyeXgZ5UnBX+32235Le3D0KYlHLkAuEZr4g=
 			</data>
 		</dict>
 		<key>Resources/Audio/Codecs.plist</key>
@@ -1423,11 +1427,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uPZXK9wmk8eq4pmGgGcJ5uCun4w=
+			yrIHhmugrq0DyXHEkb25IxZVP8o=
 			</data>
 			<key>hash2</key>
 			<data>
-			zXfvDJUwbVl+a1ORRA5tmPdsDvkvsSd+jwvgJr+HDoU=
+			mC/SeLu5Q+dQjUspeTb0sOR2zC0A4POzFw0WSta8i2k=
 			</data>
 		</dict>
 		<key>Resources/Clover/config_patches.plist</key>
@@ -1577,11 +1581,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K+KDtfbGsOpCHP5Lax8JVMyYeyk=
+			NC4z3SodTnOHkVPvUNtsk0cUHzg=
 			</data>
 			<key>hash2</key>
 			<data>
-			uIz/4KgaBz6teyao66tYDgZy992Hd5s5ZGZOHdwRKBQ=
+			5ghI8Ku8WIp/6zxECTMgirqyNBt6On5ZElHhsUKYSDk=
 			</data>
 		</dict>
 		<key>Resources/Framebuffer/macOS 10.13.6/Sandy Bridge.bin</key>
@@ -1639,6 +1643,17 @@
 			n0nBx0+EfhQcJWQPaQVsQwitmYiDwvjvwW9oaboYFr0=
 			</data>
 		</dict>
+		<key>Resources/Framebuffer/macOS 10.14/Ice Lake (LP).bin</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YuoZDPdshqKgtnH1tZfuj1jBIj8=
+			</data>
+			<key>hash2</key>
+			<data>
+			pVuK0E1389mfiC5HAsALBf3sezF8UrdwrTXrIa9Vx50=
+			</data>
+		</dict>
 		<key>Resources/Framebuffer/macOS 10.14/Ivy Bridge.bin</key>
 		<dict>
 			<key>hash</key>
@@ -1665,11 +1680,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c1XNcuaAeCGECOsPzukAiG5PGdM=
+			JrrKLx5HhivcnhyAODy1Xrb1jmo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sb0Rg7VnSswvqbALbSTNYCZPDd/A9TNpksDplf4XqQA=
+			8/yKUikWjdBGtNJYRbgzsmo3LlwzCxJWPf64ZfEF9xk=
 			</data>
 		</dict>
 		<key>Resources/Framebuffer/macOS 10.14/Skylake.bin</key>
@@ -3407,11 +3422,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6uAkjfq37vnn4oEEz+Bx3jQwqZo=
+			UyFQ1dLroip7tiO2pJdetowCEYg=
 			</data>
 			<key>hash2</key>
 			<data>
-			FEVPWA42Rmgcp3ZUyMvJwGAcpclDOjVE+2+DV20dj34=
+			yjfJw1W6xSd6csKWWM0NjGOmT7uB2bAb4aY/aGe1zQU=
 			</data>
 		</dict>
 		<key>Resources/Intel/FBDrivers.plist</key>
@@ -3429,11 +3444,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WSZHbUmBdo2bJebjiVUD/AiMCa4=
+			1aCtpKpgJJUQXLgnYK4bQyomxUQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			YF4CmP6lMlcnZTUdDK5k956SaImJfMq1evBJgfjL9NE=
+			vb73CwcAnA+zMRP9eo+tka9xZulUdAgZALLEw/wHFqw=
 			</data>
 		</dict>
 		<key>Resources/Intel/Models.plist</key>
@@ -4100,11 +4115,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UDCmNczQhpkoFqU/Ib+bpzhTBJs=
+			ZIpk3E2T/qOrMEWkJ+fbI6bGyZY=
 			</data>
 			<key>hash2</key>
 			<data>
-			o49q2M+gr2TqpEQURU0r3+6+k0WqcjqnqEEm2XXKwkA=
+			C8wJ2RX2LuPtyxgcZE6Q9O5b9SZD78zLapM2Rs1aQP0=
 			</data>
 		</dict>
 		<key>Resources/OpenCore/config.plist</key>
