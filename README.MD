@@ -456,11 +456,6 @@ The ACPI Guide is covered here:
   
 
 - SSDT-PLUG - plugin-type=1 for OpenCore, enables native CPU Power management. Note you have too look into your DSDT and change some values.
-
-  
-
-- SSDT-HPET - used with a handful of ACPI Patches to fix IRQ conflicts in the DSDT. (We will generate this later!)
-
   
 
 - SSDT-GPRW - Lets the laptop sleep and wake up! No more insomnia in macOS.
@@ -773,21 +768,12 @@ The complete ACPI guide:
 
 ---
 
-  
-
-******Wait!****** You still aren't done with ACPI Patches. You need SSDT-HPET and the ACPI Patches. Use [SSDTTime](https://github.com/corpnewt/SSDTTime) on Windows or Linux to get them.
 
   
 
   
 
-Once you're done, look in the results folder inside SSDTTime and open the OpenCore config.plist, and copy the patches to your config.plist. Copy SSDT-HPET.aml to EFI/OC/ACPI. If it's named `SSDT-HPET.dsl`, you need to compile it.
-
-  
-
-  
-
-That's all for ACPI. And it's a lot.
+That's all for ACPI.
 
   
 
