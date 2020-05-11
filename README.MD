@@ -19,7 +19,7 @@ Hey, looks like you came across my repository for this device. Looking to instal
 
 Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case as it's an 8th Gen CPU, we will follow the Coffee Lake guidelines.
 
-This is written for OpenCore 0.5.7, I will update it when OpenCore 0.5.8 is released. New OpenCore releases happen on the Monday of the next month.
+This is written for OpenCore 0.5.8, new OpenCore releases happen on the Monday of the next month.
 
   
 *****_April 18, 2020 Update_*****
