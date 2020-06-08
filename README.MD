@@ -10,7 +10,7 @@
   
 
   
-
+**THIS GUIDE IS OUTDATED**
 Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started!
 
   
