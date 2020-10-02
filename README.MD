@@ -10,7 +10,7 @@
   
 
   
-**THIS REPO IS FORK OF (R-RARE'S REPO)[https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore]**
+**THIS REPO IS FORK OF [R-RARE'S REPO](https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore)**
 Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started!
 
   
