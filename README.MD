@@ -1,7 +1,8 @@
 ## macOS Opencore Guide (Originally for Lenovo Ideapad S340) 
   
 **THIS REPO IS A FORK OF [R-RARE'S REPO](https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore)**
-*I made this because R-Rare's repo is outdated, I will update the EFI folder ~~and guide~~ soon.*
+
+*I made this because R-Rare's repo is outdated and I will update the EFI folder ~~and guide~~ soon.*
   
 Specs (may be different depending on your device):
   - CPU: Intel Dual-Core i3-8145U (8th Gen Wiskey Lake, follow the Coffee Lake guide)
