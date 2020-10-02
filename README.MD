@@ -11,10 +11,8 @@
 
   
 **THIS REPO IS FORK OF [R-RARE'S REPO](https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore)**
-Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started!
 
-  
-
+Hey, looks like you came across my repository for this device. Looking to install macOS on it? Let's get started! 
   
 
 Notes: My CPU (Intel Core i3-8145U) is Whiskey Lake - however for our case as it's an 8th Gen CPU, we will follow the Coffee Lake guidelines.
