@@ -10,7 +10,7 @@ Specs (may be different depending on your device):
   - CPU: Intel Dual-Core i3-8145U (8th Gen Wiskey Lake, follow the Coffee Lake guide)
   - GPU: Intel UHD 620
   - RAM: 8 GB 2400 MHz DDR4
-  - WiFi: Intel Wireless-AC 9462 (replace or follow intructions below)
+  - WiFi: Intel Wireless-AC 9462 (replace ~~or use [itlwm](https://github.com/OpenIntelWireless/itlwm), slower speeds~~)
 
 Known Quirks:
   - FN + K will lower brightness.
