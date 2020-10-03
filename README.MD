@@ -4,7 +4,7 @@
 
 *I made this because R-Rare's repo is outdated and I will try to update the EFI folder ~~and guide~~ soon.*
 
-*For use the following guide: https://dortania.github.io/OpenCore-Post-Install/universal/update.html#updating-opencore*
+*For now use the following guide: https://dortania.github.io/OpenCore-Post-Install/universal/update.html#updating-opencore*
   
 Specs (may be different depending on your device):
   - CPU: Intel Dual-Core i3-8145U (8th Gen Wiskey Lake, follow the Coffee Lake guide)
