@@ -6,7 +6,7 @@
 
 ### UPDATED TO OPENCORE 0.6.2: I AM NOT RESPONSIBLE FOR ANY DAMAGE, PROCEED WITH CAUTION.
 
-*For now use the following guide: https://dortania.github.io/OpenCore-Post-Install/universal/update.html#updating-opencore*
+*Based on: https://dortania.github.io/OpenCore-Install-Guide/*
   
 Specs (may be different depending on your device):
   - CPU: Intel Dual-Core i3-8145U (8th Gen Wiskey Lake, follow the Coffee Lake guide)
