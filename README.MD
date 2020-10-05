@@ -1,4 +1,4 @@
-## macOS Opencore Guide (Originally for Lenovo Ideapad S340) 
+### macOS Opencore (Lenovo Ideapad S340) 
   
 **THIS REPO IS A FORK OF [R-RARE'S REPO](https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore)**
 
