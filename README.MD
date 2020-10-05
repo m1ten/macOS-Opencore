@@ -2,7 +2,7 @@
   
 **THIS REPO IS A FORK OF [R-RARE'S REPO](https://github.com/R-Rare/Lenovo-Ideapad-S340-Hackintosh-Catalina-OpenCore)**
 
-*I made this because R-Rare's repo is outdated and I will ~~try to update the EFI folder~~ and guide soon.*
+*I made this because R-Rare's repo is outdated and I will try to update ~~the EFI folder and~~ guide soon.*
 
 ### UPDATED TO OPENCORE 0.6.2: I AM NOT RESPONSIBLE FOR ANY DAMAGE, PROCEED WITH CAUTION.
 
