@@ -4,7 +4,7 @@
 
 *I made this because R-Rare's repo is outdated and I will try to update ~~the EFI folder and~~ guide soon.*
 
-### UPDATED TO OPENCORE 0.6.2: I AM NOT RESPONSIBLE FOR ANY DAMAGE, PROCEED WITH CAUTION.
+### ~~UPDATED TO OPENCORE 0.6.2:~~ I AM NOT RESPONSIBLE FOR ANY DAMAGE, PROCEED WITH CAUTION.
 
 *Based on: https://dortania.github.io/OpenCore-Install-Guide/*
   
